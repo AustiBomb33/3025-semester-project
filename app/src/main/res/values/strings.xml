@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SimplySale</string>
+    <string name="modify_your_listings">Modify Your Listings</string>
+    <string name="create_a_listing">Create a Listing</string>
+    <string name="view_messages">View Messages</string>
+    <string name="view_listings">View Listings</string>
+    <string name="placeholder">placeholder text</string>
 </resources>
