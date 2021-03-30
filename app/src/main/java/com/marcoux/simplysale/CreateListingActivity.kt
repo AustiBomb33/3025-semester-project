@@ -1,13 +1,19 @@
 package com.marcoux.simplysale
 
+import android.app.Activity
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.ScaleDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.graphics.drawable.toBitmap
+import androidx.core.graphics.scaleMatrix
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
@@ -19,6 +25,21 @@ class CreateListingActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCreateListingBinding
 
+    private fun pickImageIntent() {
+        val intent = Intent()
+        intent.type = "image/*"
+        intent.action = Intent.ACTION_GET_CONTENT
+        startActivityForResult(Intent.createChooser(intent, "Select an image"), 0)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode == 0 && resultCode == Activity.RESULT_OK){
+            //if request was okay, we assume the image was chosen
+            binding.buttonSelectImage.setImageURI(data!!.data)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCreateListingBinding.inflate(layoutInflater)
@@ -29,9 +50,14 @@ class CreateListingActivity : AppCompatActivity() {
             finish()
         }
 
+        val imageButton = findViewById<ImageButton>(R.id.buttonSelectImage);
+        imageButton.setOnClickListener {
+            pickImageIntent()
+        }
+
         val submitButton = findViewById<Button>(R.id.buttonSubmitListing);
         submitButton.setOnClickListener {
-            println("Submitting listing")
+            Log.i("Submitting listing", "Submitting listing")
             if (binding.textItemPrice.text.isNotEmpty()
                 && binding.textDescription.text.isNotEmpty()
                 && binding.textItemName.text.isNotEmpty()
@@ -51,6 +77,7 @@ class CreateListingActivity : AppCompatActivity() {
                 //create image URL
                 val imageURL = newListing.id + newListing.name
                 var imageRef = storage.child("images/$imageURL.jpg")
+                Log.i("ImageURL", "images/$imageURL.jpg")
                 newListing.image = imageURL
 
                 //upload image to firebase storage as JPG
@@ -69,22 +96,21 @@ class CreateListingActivity : AppCompatActivity() {
                         binding.textDescription.setText("")
                         binding.textItemName.setText("")
                         binding.textItemPrice.setText("")
-                    }.addOnFailureListener{
+                    }.addOnFailureListener {
                         //toast failure
                         Toast.makeText(this, "Push to database failed", Toast.LENGTH_LONG).show()
                     }
-                }.addOnFailureListener{
+                }.addOnFailureListener {
                     //alert user if failed
                     Toast.makeText(this, "Failed to upload image", Toast.LENGTH_LONG).show()
-                    println("failed to submit: image not uploaded")
+                    Log.e("failed to submit", "image not uploaded")
                 }
-
 
 
             } else {
                 //a field is empty
                 Toast.makeText(this, "All fields are required", Toast.LENGTH_LONG).show()
-                println("failed to submit: fields empty")
+                Log.w("failed to submit", "fields empty")
             }
         }
 

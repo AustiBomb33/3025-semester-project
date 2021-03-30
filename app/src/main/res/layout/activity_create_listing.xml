@@ -34,6 +34,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:contentDescription="@string/imagePlaceholder"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/textItemName"
         app:layout_constraintEnd_toStartOf="@+id/textItemPrice"
         app:layout_constraintHorizontal_bias="0.5"
