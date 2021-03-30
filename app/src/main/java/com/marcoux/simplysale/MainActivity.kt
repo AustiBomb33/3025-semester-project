@@ -9,10 +9,8 @@ import android.widget.Toast
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
 import com.marcoux.simplysale.databinding.ActivityMainBinding
-@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
-    val RC_SIGN_IN = 1234
     private lateinit var binding: ActivityMainBinding;
 
     override fun onCreate(savedInstanceState: Bundle?) {
