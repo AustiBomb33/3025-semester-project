@@ -1,0 +1,11 @@
+package com.marcoux.simplysale
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+
+class CreateListingActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_create_listing)
+    }
+}

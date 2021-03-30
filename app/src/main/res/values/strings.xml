@@ -5,4 +5,10 @@
     <string name="view_messages">View Messages</string>
     <string name="view_listings">View Listings</string>
     <string name="placeholder">placeholder text</string>
+    <string name="back_button">Back Button</string>
+    <string name="imagePlaceholder">Choose an image</string>
+    <string name="price_placeholder">Price</string>
+    <string name="item_name_placeholder">Enter Item Name</string>
+    <string name="item_description_placeholder">Enter Description</string>
+    <string name="create_listing">Create Listing</string>
 </resources>
