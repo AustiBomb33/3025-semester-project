@@ -28,21 +28,21 @@
         app:layout_constraintTop_toTopOf="@+id/toolbar3" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/buttonSelectImage"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:contentDescription="@string/imagePlaceholder"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/textItemName"
+        app:layout_constraintEnd_toStartOf="@+id/textItemPrice"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar3"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
     <EditText
-        android:id="@+id/editTextNumberDecimal"
+        android:id="@+id/textItemPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -50,14 +50,14 @@
         android:ems="10"
         android:hint="@string/price_placeholder"
         android:inputType="numberDecimal"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton2"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonSelectImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton2"
+        app:layout_constraintStart_toEndOf="@+id/buttonSelectImage"
         android:importantForAutofill="no" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/textItemName"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -68,14 +68,14 @@
         android:hint="@string/item_name_placeholder"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/textDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.363"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonSelectImage" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/textDescription"
         android:layout_width="fill_parent"
         android:layout_height="200dp"
         android:layout_marginStart="16dp"
@@ -87,20 +87,20 @@
         android:hint="@string/item_description_placeholder"
         android:importantForAutofill="no"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSubmitListing"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/textItemName" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonSubmitListing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/create_listing"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
+        app:layout_constraintTop_toBottomOf="@+id/textDescription" />
 
     <Button
         android:id="@+id/backButton"
