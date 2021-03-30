@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "445000703099",
+    "project_id": "simplysale-6bead",
+    "storage_bucket": "simplysale-6bead.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:445000703099:android:0bf3a24ba2dc9cfc9bd6de",
+        "android_client_info": {
+          "package_name": "com.marcoux.simplysale"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "445000703099-jrl9runtpbidt1j9n58b4cu7jr2agunm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXpyZtkG2p5ke-JYQVmo99WiAB56OvbGM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "445000703099-jrl9runtpbidt1j9n58b4cu7jr2agunm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
