@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.storage.FirebaseStorage
 import java.net.URLEncoder
@@ -19,6 +20,7 @@ class RecyclerViewAdapter(val context: Context, val listings: List<Listing>) :
         val nameTextView = itemView.findViewById<TextView>(R.id.textName)
         val priceTextView = itemView.findViewById<TextView>(R.id.textPrice)
         val itemImageView = itemView.findViewById<ImageView>(R.id.image)
+        val listingRoot = itemView.findViewById<ConstraintLayout>(R.id.listingRoot)
     }
 
     override fun getItemCount(): Int {
@@ -39,14 +41,15 @@ class RecyclerViewAdapter(val context: Context, val listings: List<Listing>) :
 
             //get image from storage
             val storage = FirebaseStorage.getInstance().reference
-            //val imgURL = URLEncoder.encode("images/${listing.image}.jpg", "utf-8")
             val imgURL = "images/${listing.image}.jpg"
             Log.i("ImageURL", imgURL)
             val storagePath = storage.child(imgURL)
             storagePath.getBytes(1024*1024).addOnSuccessListener {bytes->
                 itemImageView.setImageBitmap(BitmapFactory.decodeByteArray(bytes, 0, bytes.size))
             }
-
+            listingRoot.setOnClickListener{
+                Log.i("Clicked listing", "${listing.name}")
+            }
         }
     }
 
