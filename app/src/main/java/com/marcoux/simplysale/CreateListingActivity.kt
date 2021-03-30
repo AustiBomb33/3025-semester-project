@@ -14,6 +14,8 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.graphics.scaleMatrix
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
@@ -70,7 +72,7 @@ class CreateListingActivity : AppCompatActivity() {
                 newListing.name = binding.textItemName.text.toString()
                 newListing.desc = binding.textDescription.text.toString()
                 newListing.price = binding.textItemPrice.text.toString().toFloat()
-
+                newListing.owner = FirebaseAuth.getInstance().currentUser!!.uid
                 //get an ID for the listing
                 newListing.id = db.document().id
 

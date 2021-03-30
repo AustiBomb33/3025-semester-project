@@ -5,5 +5,6 @@ class Listing(
     var name: String? = null,
     var image: String? = null,
     var price: Float? = null,
-    var desc: String? = null
+    var desc: String? = null,
+    var owner: String? = null
 )
