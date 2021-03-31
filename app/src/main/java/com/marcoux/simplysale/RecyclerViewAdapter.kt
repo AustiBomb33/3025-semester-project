@@ -1,6 +1,8 @@
 package com.marcoux.simplysale
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,8 +11,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
+import com.marcoux.simplysale.databinding.ActivityViewListingBinding
 import java.net.URLEncoder
 
 class RecyclerViewAdapter(val context: Context, val listings: List<Listing>) :
@@ -35,7 +40,7 @@ class RecyclerViewAdapter(val context: Context, val listings: List<Listing>) :
 
     override fun onBindViewHolder(holder: ListingViewHolder, position: Int) {
         val listing = listings[position]
-        with(holder){
+        with(holder) {
             nameTextView.text = listing.name
             priceTextView.text = "$${listing.price}"
 
@@ -44,11 +49,21 @@ class RecyclerViewAdapter(val context: Context, val listings: List<Listing>) :
             val imgURL = "images/${listing.image}.jpg"
             Log.i("ImageURL", imgURL)
             val storagePath = storage.child(imgURL)
-            storagePath.getBytes(1024*1024).addOnSuccessListener {bytes->
+            storagePath.getBytes(1024 * 1024).addOnSuccessListener { bytes ->
                 itemImageView.setImageBitmap(BitmapFactory.decodeByteArray(bytes, 0, bytes.size))
             }
-            listingRoot.setOnClickListener{
+            listingRoot.setOnClickListener {
                 Log.i("Clicked listing", "${listing.name}")
+                var intent: Intent =
+                    if (listing.owner == FirebaseAuth.getInstance().currentUser!!.uid) {
+                        //modify the listing if user owns it
+                        Intent(context, ModifyListingActivity::class.java)
+                    } else {
+                        //otherwise, just view it
+                        Intent(context, ViewListingActivity::class.java)
+                    }
+                intent.putExtra("listing", listing)
+                startActivity(context, intent, null)
             }
         }
     }
