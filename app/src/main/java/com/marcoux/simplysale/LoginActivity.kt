@@ -2,16 +2,14 @@ package com.marcoux.simplysale
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.firebase.ui.auth.AuthUI
-import com.google.firebase.auth.FirebaseAuth
-import com.marcoux.simplysale.databinding.ActivityMainBinding
 
 @Suppress("DEPRECATION")
-class loginActivity : AppCompatActivity() {
-    val RC_SIGN_IN = 1234
+class LoginActivity : AppCompatActivity() {
+    private val SIGNINCODE = 1234
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -27,7 +25,7 @@ class loginActivity : AppCompatActivity() {
                 .createSignInIntentBuilder()
                 .setAvailableProviders(providers)
                 .build(),
-            RC_SIGN_IN
+            SIGNINCODE
         )
 
     }
@@ -35,18 +33,17 @@ class loginActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == RC_SIGN_IN) {
+        if (requestCode == SIGNINCODE) {
 
             if (resultCode == Activity.RESULT_OK) {
                 // Successfully signed in
-                val user = FirebaseAuth.getInstance().currentUser
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 finish()
             } else {
                 // sign in failed
                 Toast.makeText(this, "Sign in failed", Toast.LENGTH_LONG).show()
-                val intent = Intent(this, loginActivity::class.java)
+                val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
                 finish()
             }

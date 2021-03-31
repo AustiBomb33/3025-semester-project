@@ -75,7 +75,7 @@ class ModifyListingActivity : AppCompatActivity() {
 
             //create image URL
             val imageURL = listing.id + listing.name
-            var imageRef = storage.child("images/$imageURL.jpg")
+            val imageRef = storage.child("images/$imageURL.jpg")
             Log.i("ImageURL", "images/$imageURL.jpg")
             listing.image = imageURL
 

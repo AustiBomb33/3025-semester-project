@@ -1,14 +1,10 @@
 package com.marcoux.simplysale
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.Toast
-import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.ktx.Firebase
 import com.marcoux.simplysale.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -23,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         binding.textUserName.setText("Logged in as ${FirebaseAuth.getInstance().currentUser!!.displayName}")
         binding.buttonLogOut.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
-            val intent = Intent(this, loginActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
         }

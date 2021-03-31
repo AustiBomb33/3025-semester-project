@@ -22,7 +22,7 @@ class OwnedListings : AppCompatActivity() {
 
         val model: ListingViewModelOwnerOnly by viewModels()
         model.getListings().observe(this) { listings ->
-            var recyclerAdapter = RecyclerViewAdapter(this, listings)
+            val recyclerAdapter = RecyclerViewAdapter(this, listings)
             Log.i("Recycler Binding", "Binding adapter to recycler")
             binding.listingsRecyclerView.adapter = recyclerAdapter
         }

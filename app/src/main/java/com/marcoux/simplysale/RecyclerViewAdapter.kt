@@ -1,6 +1,5 @@
 package com.marcoux.simplysale
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
@@ -15,17 +14,15 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
-import com.marcoux.simplysale.databinding.ActivityViewListingBinding
-import java.net.URLEncoder
 
-class RecyclerViewAdapter(val context: Context, val listings: List<Listing>) :
+class RecyclerViewAdapter(private val context: Context, private val listings: List<Listing>) :
     RecyclerView.Adapter<RecyclerViewAdapter.ListingViewHolder>() {
 
     inner class ListingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val nameTextView = itemView.findViewById<TextView>(R.id.textName)
-        val priceTextView = itemView.findViewById<TextView>(R.id.textPrice)
-        val itemImageView = itemView.findViewById<ImageView>(R.id.image)
-        val listingRoot = itemView.findViewById<ConstraintLayout>(R.id.listingRoot)
+        val nameTextView = itemView.findViewById<TextView>(R.id.textName)!!
+        val priceTextView = itemView.findViewById<TextView>(R.id.textPrice)!!
+        val itemImageView = itemView.findViewById<ImageView>(R.id.image)!!
+        val listingRoot = itemView.findViewById<ConstraintLayout>(R.id.listingRoot)!!
     }
 
     override fun getItemCount(): Int {
@@ -54,7 +51,7 @@ class RecyclerViewAdapter(val context: Context, val listings: List<Listing>) :
             }
             listingRoot.setOnClickListener {
                 Log.i("Clicked listing", "${listing.name}")
-                var intent: Intent =
+                val intent: Intent =
                     if (listing.owner == FirebaseAuth.getInstance().currentUser!!.uid) {
                         //modify the listing if user owns it
                         Intent(context, ModifyListingActivity::class.java)

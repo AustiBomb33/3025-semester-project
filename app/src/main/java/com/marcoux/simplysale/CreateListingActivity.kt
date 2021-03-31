@@ -4,23 +4,16 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.ScaleDrawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
-import android.widget.ImageView
 import android.widget.Toast
-import androidx.core.graphics.drawable.toBitmap
-import androidx.core.graphics.scaleMatrix
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
 import com.marcoux.simplysale.databinding.ActivityCreateListingBinding
-import com.marcoux.simplysale.databinding.ActivityMainBinding
 import java.io.ByteArrayOutputStream
 
 class CreateListingActivity : AppCompatActivity() {
@@ -47,17 +40,17 @@ class CreateListingActivity : AppCompatActivity() {
         binding = ActivityCreateListingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val backButton = findViewById<Button>(R.id.backButton);
+        val backButton = findViewById<Button>(R.id.backButton)
         backButton.setOnClickListener {
             finish()
         }
 
-        val imageButton = findViewById<ImageButton>(R.id.buttonSelectImage);
+        val imageButton = findViewById<ImageButton>(R.id.buttonSelectImage)
         imageButton.setOnClickListener {
             pickImageIntent()
         }
 
-        val submitButton = findViewById<Button>(R.id.buttonSubmitListing);
+        val submitButton = findViewById<Button>(R.id.buttonSubmitListing)
         submitButton.setOnClickListener {
             Log.i("Submitting listing", "Submitting listing")
             if (binding.textItemPrice.text.isNotEmpty()
@@ -78,7 +71,7 @@ class CreateListingActivity : AppCompatActivity() {
 
                 //create image URL
                 val imageURL = newListing.id + newListing.name
-                var imageRef = storage.child("images/$imageURL.jpg")
+                val imageRef = storage.child("images/$imageURL.jpg")
                 Log.i("ImageURL", "images/$imageURL.jpg")
                 newListing.image = imageURL
 
