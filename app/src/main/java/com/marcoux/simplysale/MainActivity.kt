@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
 import com.marcoux.simplysale.databinding.ActivityMainBinding
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -36,8 +37,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
-
 
 
 }
