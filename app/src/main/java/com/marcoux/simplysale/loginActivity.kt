@@ -42,9 +42,13 @@ class loginActivity : AppCompatActivity() {
                 val user = FirebaseAuth.getInstance().currentUser
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
+                finish()
             } else {
                 // sign in failed
                 Toast.makeText(this, "Sign in failed", Toast.LENGTH_LONG).show()
+                val intent = Intent(this, loginActivity::class.java)
+                startActivity(intent)
+                finish()
             }
         }
     }

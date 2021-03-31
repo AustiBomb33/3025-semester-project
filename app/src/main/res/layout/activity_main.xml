@@ -7,10 +7,10 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/buttonLogInOut"
+        android:id="@+id/buttonLogOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/placeholder"
+        android:text="@string/log_out"
         app:layout_constraintBottom_toTopOf="@+id/buttonViewListings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -26,7 +26,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonLogInOut" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogOut" />
 
     <Button
         android:id="@+id/buttonCreateListings"
@@ -55,9 +55,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/placeholder"
-        app:layout_constraintBottom_toTopOf="@+id/buttonLogInOut"
-        app:layout_constraintEnd_toEndOf="@+id/buttonLogInOut"
-        app:layout_constraintStart_toStartOf="@+id/buttonLogInOut" />
+        app:layout_constraintBottom_toTopOf="@+id/buttonLogOut"
+        app:layout_constraintEnd_toEndOf="@+id/buttonLogOut"
+        app:layout_constraintStart_toStartOf="@+id/buttonLogOut" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
