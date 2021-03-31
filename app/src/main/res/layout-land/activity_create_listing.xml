@@ -13,8 +13,9 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="1dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
@@ -34,10 +35,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
         android:contentDescription="@string/imagePlaceholder"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/textDescription"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar3"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
@@ -84,36 +83,29 @@
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
         android:ems="10"
         android:gravity="start|top"
         android:hint="@string/item_description_placeholder"
         android:importantForAutofill="no"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/buttonSubmitListing"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonSubmitListing"
         app:layout_constraintTop_toBottomOf="@+id/buttonSelectImage" />
 
     <Button
         android:id="@+id/buttonSubmitListing"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
         android:text="@string/create_listing"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonSelectImage"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/backButton"
