@@ -27,7 +27,7 @@ class ViewListingActivity : AppCompatActivity() {
         val imgURL = "images/${listing.image}.jpg"
         Log.i("ImageURL", imgURL)
         val storagePath = storage.child(imgURL)
-        storagePath.getBytes(1024 * 1024).addOnSuccessListener { bytes ->
+        storagePath.getBytes(1024 * 1024 * 1024).addOnSuccessListener { bytes ->
             binding.buttonSelectImage.setImageBitmap(
                 BitmapFactory.decodeByteArray(
                     bytes,

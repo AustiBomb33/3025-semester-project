@@ -46,7 +46,7 @@ class RecyclerViewAdapter(private val context: Context, private val listings: Li
             val imgURL = "images/${listing.image}.jpg"
             Log.i("ImageURL", imgURL)
             val storagePath = storage.child(imgURL)
-            storagePath.getBytes(1024 * 1024).addOnSuccessListener { bytes ->
+            storagePath.getBytes(1024 * 1024 * 1024).addOnSuccessListener { bytes ->
                 itemImageView.setImageBitmap(BitmapFactory.decodeByteArray(bytes, 0, bytes.size))
             }
             listingRoot.setOnClickListener {
