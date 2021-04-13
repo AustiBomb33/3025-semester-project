@@ -13,4 +13,5 @@
     <string name="create_listing">Create Listing</string>
     <string name="update_listing">Update Listing</string>
     <string name="log_out">Log Out</string>
+    <string name="featured_listing">Featured Listing</string>
 </resources>

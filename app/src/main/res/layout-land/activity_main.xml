@@ -6,15 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/textUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/placeholder"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLogOut"
+        app:layout_constraintEnd_toEndOf="@+id/buttonModifyListings"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
     <Button
         android:id="@+id/buttonLogOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/log_out"
         app:layout_constraintBottom_toTopOf="@+id/buttonViewListings"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/buttonModifyListings"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/textUserName" />
 
     <Button
         android:id="@+id/buttonViewListings"
@@ -22,7 +34,8 @@
         android:layout_height="wrap_content"
         android:text="@string/view_listings"
         app:layout_constraintBottom_toTopOf="@+id/buttonCreateListings"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/buttonModifyListings"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonLogOut" />
 
@@ -32,7 +45,8 @@
         android:layout_height="wrap_content"
         android:text="@string/create_a_listing"
         app:layout_constraintBottom_toTopOf="@+id/buttonModifyListings"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/buttonModifyListings"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonViewListings" />
 
@@ -40,19 +54,16 @@
         android:id="@+id/buttonModifyListings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:text="@string/modify_your_listings"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/featuredListing"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonCreateListings" />
-
-    <TextView
-        android:id="@+id/textUserName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/placeholder"
-        app:layout_constraintBottom_toTopOf="@+id/buttonLogOut"
-        app:layout_constraintEnd_toEndOf="@+id/buttonLogOut"
-        app:layout_constraintStart_toStartOf="@+id/buttonLogOut" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -78,47 +89,71 @@
 
     <View
         android:id="@+id/featuredListing"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonModifyListings" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonModifyListings"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.511" />
 
     <TextView
         android:id="@+id/featuredListingLabel"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/featured_listing"
         app:layout_constraintBottom_toTopOf="@+id/featuredName"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/featuredListing"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonModifyListings" />
-
-    <TextView
-        android:id="@+id/featuredName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/placeholder"
-        app:layout_constraintBottom_toTopOf="@+id/featuredImage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/featuredListingLabel" />
+        app:layout_constraintStart_toStartOf="@+id/featuredListing"
+        app:layout_constraintTop_toTopOf="@+id/featuredListing" />
 
     <ImageView
         android:id="@+id/featuredImage"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
         android:contentDescription="@string/imagePlaceholder"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/featuredListing"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/featuredListing"
         app:layout_constraintTop_toBottomOf="@+id/featuredName"
         app:srcCompat="@android:drawable/ic_menu_report_image" />
+
+    <TextView
+        android:id="@+id/featuredName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/placeholder"
+        app:layout_constraintBottom_toTopOf="@+id/featuredImage"
+        app:layout_constraintEnd_toEndOf="@+id/featuredListing"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/featuredListing"
+        app:layout_constraintTop_toBottomOf="@+id/featuredListingLabel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
